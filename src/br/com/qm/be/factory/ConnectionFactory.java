@@ -1,4 +1,4 @@
-package br.com.qm.be.piloto.factory;
+package br.com.qm.be.factory;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import br.com.qm.be.piloto.factory.ConnectionFactory;
+import br.com.qm.be.factory.ConnectionFactory;
 import br.com.qm.be.piloto.pojo.Piloto;
 
 public class PilotoDAO {
