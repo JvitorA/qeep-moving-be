@@ -59,5 +59,13 @@ public class Piloto {
 	public void setSalario(float salario) {
 		this.salario = salario;
 	}
+
+	@Override
+	public String toString() {
+		return "Piloto [nome=" + nome + ", matricula=" + matricula + ", horasVoo=" + horasVoo + ", numAeronave="
+				+ numAeronave + ", salario=" + salario + "]";
+	}
+	
+	
 	
 }

@@ -80,5 +80,12 @@ public class Cidade {
 	public void setNomePrefeito(String nomePrefeito) {
 		this.nomePrefeito = nomePrefeito;
 	}
+
+	@Override
+	public String toString() {
+		return "Cidade [ddd=" + ddd + ", nome=" + nome + ", nroHabitantes=" + nroHabitantes + ", rendaPerCapita="
+				+ rendaPerCapita + ", capital=" + capital + ", estado=" + estado + ", nomePrefeito=" + nomePrefeito
+				+ "]";
+	}
 	
 }
