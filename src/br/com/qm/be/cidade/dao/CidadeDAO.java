@@ -136,6 +136,29 @@ public class CidadeDAO {
 		return 0;
 	}
 	
+	public List<Cidade> listaCidadesPorSigla(String sigla) {
+		
+		List<Cidade> cidades = new ArrayList<Cidade>();
+		
+		String sql = "select * from cidades.cidade "
+				+ "where estado = ?";
+		
+		try {
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setString(1, sigla);
+			ResultSet rs = stmt.executeQuery();
+			mapeiaLista(cidades, rs);
+			
+		} catch (SQLException e) {
+			System.err.println("Erro ao listar cidades por sigla");
+			System.err.println(e.getMessage());
+		}
+		
+		
+		
+		return cidades;
+	}
+	
 	public List<Cidade> listaCidadesPorTexto(String inicio) {
 		
 		List<Cidade> cidades = new ArrayList<Cidade>();
@@ -147,8 +170,8 @@ public class CidadeDAO {
 			stmt.setString(1, inicio + "%");
 			
 			ResultSet rs = stmt.executeQuery();
-			
 			mapeiaLista(cidades, rs);
+			
 		} catch (SQLException e) {
 			System.err.println("Erro ao listar cidades que começam com: " + inicio);
 			System.err.println(e.getMessage());
@@ -156,6 +179,28 @@ public class CidadeDAO {
 		
 		
 		
+		
+		return cidades;
+	}
+	
+	public List<Cidade> listaFiltroCapital(boolean capital) {
+		
+		List<Cidade> cidades = new ArrayList<Cidade>();
+		
+		String sql = "select * from cidades.cidade "
+				+ "where capital = ?";
+		
+		PreparedStatement stmt;
+		try {
+			stmt = conn.prepareStatement(sql);
+			stmt.setBoolean(1, capital);
+			
+			ResultSet rs = stmt.executeQuery();
+			mapeiaLista(cidades, rs);
+		} catch (SQLException e) {
+			System.err.println("Erro ao listar cidades pelo filtro de capital.");
+			System.err.println(e.getMessage());
+		}
 		
 		return cidades;
 	}

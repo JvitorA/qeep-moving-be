@@ -40,6 +40,19 @@ public class ProgramaPrincipal {
 		}
 		
 		
+		System.out.println("Cidades do estado de SP");
+		List<Cidade> cidadesSP = cidadeDAO.listaCidadesPorSigla("SP");
+		for (Cidade cidade : cidadesSP) {
+			System.out.println(cidade);
+		}
+		
+		System.out.println("Capitas presentes do BD");
+		List<Cidade> capitais = cidadeDAO.listaFiltroCapital(true);
+		for (Cidade cidade: capitais) {
+			System.out.println(cidade);
+		}
+		
+		
 	}
 	
 }
